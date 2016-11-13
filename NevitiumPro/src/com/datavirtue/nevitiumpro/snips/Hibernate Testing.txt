@@ -1,0 +1,135 @@
+
+        MyConnectionsDAO connDao = new MyConnectionsDAO(hibernate);
+        Connections conn = new Connections();
+        conn.setCompanyName("Data Virtue");
+        conn.setContact("Sean Anderson");
+        try {
+            conn.setPicture(SqlUtil.convertImageIconToByteArray(new ImageIcon("C:\\1DATA\\tandy.jpg")));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        ConnectionsDocuments cd = new ConnectionsDocuments();
+        cd.setApplication("PDF");
+        try {
+            cd.setBinDocument(SqlUtil.readFileToByteArray("c:\\1DATA\\dell.pdf"));
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        cd.setDate(BigInteger.valueOf(new Date().getTime()));
+        cd.setConnections(conn);
+        ArrayList<ConnectionsDocuments> docs = new ArrayList<ConnectionsDocuments>();
+        docs.add(cd);
+        conn.setConnectionsDocumentsCollection(docs);
+
+        //connDao.save(conn);
+        //connDao.save(cd);
+        try {
+            /*Session session = hibernate.getSession();
+             session.beginTransaction();
+             session.saveOrUpdate(conn);
+             //session.save(cd);
+             session.getTransaction().commit();
+             */
+
+            connDao.transactionSave(conn, 10);
+            conn = null;
+            cd = null;
+            //conn = (Connections)session.get(Connections.class, 1);
+
+            //BeanTableModel model = connDao.getBeanTableModelByHQL("from Connections where companyName='Data Virtue'");
+            //BeanTableModel model = connDao.getTableModelAll();
+            /*
+             //conn = list.get(0);
+             conn = (Connections)model.getBeanAt(0);
+             DV.println(conn.getCompanyName());
+             DV.println(conn.getContact());
+            
+             //DV.println((String)model.getValueAt(0, 0));
+             //DV.println(nl);
+             //DV.println(nl);
+            
+             Collection<ConnectionsDocuments> cds = conn.getConnectionsDocumentsCollection();
+             Iterator<ConnectionsDocuments> i = cds.iterator();
+             cd = i.next();
+             DV.println(cd.getApplication());
+             byte[] b = cd.getBinDocument();
+             try {
+             SqlUtil.writeBytesToFile(b, "C:\\1DATA\\dell_2.pdf");
+             } catch (FileNotFoundException ex) {
+             ex.printStackTrace();
+             } catch (IOException ex) {
+             ex.printStackTrace();
+             }*/
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+
+        /*  try{
+         img.setImage(new ImageIcon("C:\\1DATA\\tandy.jpg"));
+         }catch(Exception ex){
+         ex.printStackTrace();
+         }
+            
+         PicDialog pd = new PicDialog(this, false, img.getImage());*/
+
+
+
+        /* ConversionUtil util = new ConversionUtil();
+         try{
+         util.convertInventory(dbsys, hibernate);
+         }catch(Exception ex){
+         ex.printStackTrace();
+         }*/
+        hibernate.shutdown();
+
+        /*try { 
+         JAXBLayout layout = new JAXBLayout();
+         LayoutElement element = new LayoutElement();
+         element.setElementName("default");
+         TableElement table = new TableElement();
+         table.getColumns().add(new TableColumnElement());
+         table.getColumns().add(new TableColumnElement());
+         element.setTable(table);
+         layout.getElement().add(element);
+                  
+         JAXBContext context = JAXBContext.newInstance(JAXBLayout.class);
+         Marshaller marsh = context.createMarshaller();
+         File file = new File("Layouts/layout.template.xml");
+         marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+         marsh.marshal(layout, System.out);
+         marsh.marshal(layout, file);
+         } catch (Exception ex) {
+         ex.printStackTrace();
+         }*/
+
+        /*     JAXBLayout layout=null;
+         try {
+         layout = JAXBLayout.loadJAXBLayout("layouts/layout.template.xml");
+         } catch (JAXBException ex) {
+         Logger.getLogger(ControlCenter.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (IOException ex) {
+         Logger.getLogger(ControlCenter.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (Exception ex) {
+         Logger.getLogger(ControlCenter.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         ArrayList<LayoutElement> l = layout.getElement();
+         LayoutElement e = l.get(0);
+         System.out.println(e.getElementName());
+         */
+
+        /* try{
+         RootTest rt = new RootTest();
+         Test1 test1 = new Test1();
+         test1.setName("Sean Anderson");
+         rt.setTest(test1);
+         JAXBContext context = JAXBContext.newInstance(RootTest.class);
+         Marshaller marsh = context.createMarshaller();
+         marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+         marsh.marshal(rt, System.out);
+         }catch(Exception ex){
+         ex.printStackTrace();
+         }*/

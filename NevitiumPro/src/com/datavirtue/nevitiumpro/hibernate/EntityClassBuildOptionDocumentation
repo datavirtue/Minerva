@@ -1,0 +1,43 @@
+General data model rebuild process:
+1. Make changes in MySQL Workbench
+2. Drop MySQL schema if necessary
+3. Update MySQL database (source) with changes
+4. Drop HSQLDB schema if necessary
+5. Generate Entities in Netbeans from directions below
+6. perform manual entity changes if necessary
+7. Start application in hbm2ddl.auto "update" mode
+8. Check HSQLDB schema
+
+Steps for creating entity classes from a database
+
+! = Required
+# = Optional
+X = Do not use
+
+You will need to drop the schema before updating the database from MySQL Workbench if 
+the table names have changed or some have been eliminated.
+Use MySQL Workbench to Query the database, Right-Click database, select Drop Schema
+
+Clean HSQLDB:
+HSQLDB Database Manager: jdbc:hsqldb:file:c:/data/nevitium
+DROP SCHEMA PUBLIC CASCADE;
+
+Netbeans:
+! Right-click Project and select New..New Entity classes from database
+! Add All
+! Include Related Tables
+# Generate Named Queries
+# Generate JAXB
+Collections == List
+! Include attributes to regenerate tables
+X Column names in relationships
+
+Manual entity changes:
+
+/* InventoryImages */
+
+public ImageIcon getBitmap() {
+        return new ImageIcon(bitmap);
+    }
+
+/* END */

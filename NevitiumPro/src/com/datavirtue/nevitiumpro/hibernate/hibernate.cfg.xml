@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+    <property name="hibernate.id.new_generator_mappings">true</property>
+    <mapping package="com.datavirtue.nevitiumpro"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.AppGlobalSettings"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.AppUserSettings"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.Connections"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.ConnectionsAddress"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.ConnectionsDocuments"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.ConnectionsPhones"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.CreditAccountLedger"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.CreditAccounts"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.DebitAccountLedger"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.DebitAccounts"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.Info"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.Inventory"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.InventoryImages"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.InvoiceItems"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.InvoicePayments"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.InvoiceReturns"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.Invoices"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.LayoutImages"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.Layouts"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.Projects"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.QuoteItems"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.Quotes"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.UserAccounts"/>
+    <mapping class="com.datavirtue.nevitiumpro.entities.WindowPositions"/>
+</session-factory>
+</hibernate-configuration>

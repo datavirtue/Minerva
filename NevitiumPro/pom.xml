@@ -1,0 +1,10 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.datavirtue.nevitiumpro</groupId>
+    <artifactId>NevitiumPro</artifactId>
+    <version>1.6.0</version>
+    <packaging>jar</packaging>
+    <build>
+        <finalName>${project.groupId}-${project.artifactId}</finalName>
+    </build>
+</project>

@@ -1,0 +1,8 @@
+try{
+        
+}catch(Exception ex){
+    ExceptionErrorDialog errDialog = new ExceptionErrorDialog(ex);
+    errDialog.pack();
+    errDialog.setVisible(true);            
+}
+

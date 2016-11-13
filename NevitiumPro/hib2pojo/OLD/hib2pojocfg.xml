@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<appconfig>
+	<dbType>MYSQL</dbType>
+	<driver>com.mysql.jdbc.Driver</driver>
+      	<jdbcConnectionString>jdbc:mysql://127.0.0.1/NevitiumPro</jdbcConnectionString>
+	<databaseIP>localhost</databaseIP>
+	<databaseCatalog>NevitiumPro</databaseCatalog>
+	<databaseUsername>root</databaseUsername>
+	<databasePassword></databasePassword>
+	<sourceTarget>C:\1data\prj\NevitiumPro\hib2pojo\pojo</sourceTarget>
+	<projectName>data</projectName>
+	<topLevel>com.datavirtue.nevitiumpro</topLevel>
+	<libPath>libs</libPath>
+	<schemaStrategy>PARTIAL</schemaStrategy>
+<dbPackageMap>
+	<map schema="DEFAULT">
+		<!--  Location of hibernate objects. -->
+		<objectPackage>${topLevel}.${projectName}.model.obj</objectPackage>
+		<!--  Location of interface for hibernate objects. -->
+		<objectInterfacePackage>${topLevel}.${projectName}.model.obj</objectInterfacePackage>
+		<!--  Location of hibernate DAO objects.  -->
+		<daoPackage>${topLevel}.${projectName}.model.dao</daoPackage>
+		<daoImplPackage>${topLevel}.${projectName}.model.dao.impl</daoImplPackage>
+		<!--  Location of hibernate enum objects. -->
+		<enumPackage>${topLevel}.${projectName}.enums.db</enumPackage>
+		<!--  Location of hibernate factory objects.  -->
+		<factoryPackage>${topLevel}.${projectName}.factories</factoryPackage>
+		<!--  Location of data layer objects.  -->
+		<dataPackage>${topLevel}.${projectName}.services.datalayer</dataPackage>
+	</map>
+
+</dbPackageMap>
+</appconfig>
